@@ -3,3 +3,11 @@ table, th, td {
 	height: 150px;
 	width: 500px;
 }
+
+td {
+	color: white;
+}
+
+.black {
+	color: black;
+}
