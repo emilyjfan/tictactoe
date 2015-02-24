@@ -1,9 +1,8 @@
 function gameOver(winner) {
 	alert(winner + " wins!");
+	$('div').effect('bounce', { times: 3}, 2000);
 	$('td').off('click');
-	$('table').effect('pulsate');
-	$('td').animate('easing');
-
+	// $('table').effect('pulsate');
 	return true;
 }
 
@@ -15,10 +14,10 @@ $(document).ready(function(){
 	
 		
 		if ( turn % 2 === 1) {
-			$(this).text('X');
+			$(this).html('<div>X</div>');
 			$(this).addClass("blue");
 		} else {
-			$(this).text('O');
+			$(this).html('<div>O</div>');
 			$(this).addClass("red");
 		}
 
