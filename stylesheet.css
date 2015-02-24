@@ -1,5 +1,5 @@
 h1{
-	  margin-left: 5%;
+	  margin-left: 50px;
 }
 
 body {
@@ -12,6 +12,7 @@ table, th, td {
 	width: 500px;
 	border-width: 4px;
 	background-color: black;
+	margin-top: 10px;
 }
 
 td {
@@ -35,8 +36,8 @@ button {
   background-color: red;
   border: 1px solid #666;
   color: white;
-  margin-left: 20%;
-	height: 50px;
-	width: 200px;
+  margin-left: 175px;
+	height: 40px;
+	width: 150px;
 	font-size: 20px;
 }

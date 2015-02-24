@@ -1,6 +1,7 @@
 function gameOver(winner) {
 	alert(winner + " wins!");
-	$('div').effect('bounce', { times: 3}, 2000);
+	$('.blue').solitaireVictory()
+	$('.red').solitaireVictory()
 	$('td').off('click');
 	// $('table').effect('pulsate');
 	return true;
@@ -23,6 +24,7 @@ $(document).ready(function(){
 
 		if(checkWin() === false && turn === 9) {	
 			alert("DRAW");
+			$('div').effect('bounce', { times: 3}, 2000);
 		}
 		
 		turn++;
