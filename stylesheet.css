@@ -16,18 +16,19 @@ table, th, td {
 }
 
 td {
-	width: 33%;
+	width: 150px;
+	height: 150px;
 	color: white;
 	font-size: 100px;	
 	text-align: center;
 	background-color: white;
 }
 
-.blue {
+.X {
 	color: blue;
 }
 
-.red {
+.O {
 	color: red;
 }
 

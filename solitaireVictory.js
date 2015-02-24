@@ -4,15 +4,15 @@
 
         settings = settings || {};
 
-        var g = settings.g || -3;
-        var dt = settings.dt || 20;
-        var bounce = settings.bounce || 0.7;
-        var endVelocity = settings.endVelocity || 20;
-        var stagger = settings.stagger || 200;
-        var relativeToDocument = settings.relativeToDocument || false;
-        var clear = settings.clear || false;
+        var g                  = settings.g                     || -3;
+        var dt                 = settings.dt                    || 20;
+        var bounce             = settings.bounce                || 0.7;
+        var endVelocity        = settings.endVelocity           || 20;
+        var stagger            = settings.stagger               || 200;
+        var relativeToDocument = settings.relativeToDocument    || false;
+        var clear              = settings.clear                 || false;
 
-        var body = $('body');
+        var body         = $('body');
         var windowHeight = (relativeToDocument ? $(document).height() : $(window).height());
 
         var fallIteration = function(elem, elemHeight, oldPos, dx, dy) {
@@ -41,7 +41,7 @@
         };
 
         var startFall = function(elem, height, stagger) {
-            var dx = settings.dx || Math.floor((Math.random()*10)) + 5;
+            var dx   = settings.dx || Math.floor((Math.random()*10)) + 5;
             var copy = elem.clone();
             copy.addClass('solitaire-victory-clone');
             if (relativeToDocument) {
