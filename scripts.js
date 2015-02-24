@@ -1,6 +1,10 @@
 function gameOver(winner) {
 	alert(winner + " wins!");
-	$("td").off("click");
+	$('td').off('click');
+	$('table').effect('pulsate');
+	$('td').animate('easing');
+
+	return true;
 }
 
 $(document).ready(function(){
@@ -8,16 +12,17 @@ $(document).ready(function(){
 	var turn = 1
 
 	$('td').click(function(){
-		$(this).addClass("black");
+	
 		
 		if ( turn % 2 === 1) {
 			$(this).text('X');
+			$(this).addClass("blue");
 		} else {
 			$(this).text('O');
+			$(this).addClass("red");
 		}
-		checkWin();
 
-		if(turn === 9) {
+		if(checkWin() === false && turn === 9) {	
 			alert("DRAW");
 		}
 		
@@ -40,30 +45,32 @@ $(document).ready(function(){
 
 		switch (true) {
 			case one === two && two === thr:
-				gameOver(one);
+				return gameOver(one);
 				break;
 			case four == five && five == six:
-				gameOver(four);
+				return gameOver(four);
 				break;
 			case sev === eight && eight === nine:
-				gameOver(sev);
+				return gameOver(sev);
 				break;
 			case one === four && four === sev:
-				gameOver(one);
+				return gameOver(one);
 				break;
 			case two === five && five === eight:
-				gameOver(two);
+				return gameOver(two);
 				break;
 			case thr === six && six === nine:
-				gameOver(thr);
+				return gameOver(thr);
 				break;
 			case one === five && five === nine:
-				gameOver(one);
+				return gameOver(one);
 				break;
 			case thr === five && five === sev:
-				gameOver(thr);
+				return gameOver(thr);
 				break;
 			}
+
+		return false;
 	}
 
 $('button').click(function() {
