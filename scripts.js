@@ -1,11 +1,3 @@
-function gameOver(winner) {
-	$(this).off('click');
-
-	// alert(winner + " wins!");
-	$('.'+winner).solitaireVictory({dt: 0, g: -1, stagger: 800, endVelocity: 5});
-	// $('table').effect('pulsate');
-	return true;
-}
 
 
 $(document).ready(function(){
@@ -15,7 +7,6 @@ $(document).ready(function(){
 		return this.not(selector).length === 0
 	}
 
-	var turn = "X"
 
 	function checkWin() {
 		for (var i = 1; i <= 8; i++) {
@@ -33,23 +24,27 @@ $(document).ready(function(){
 		return $("td").all(".X, .O")
 	}
 
+	function victoryDance(winner) {
+		$(this).off('click');
+		$('.'+winner).solitaireVictory({dt: 0, g: -1, stagger: 800, endVelocity: 5});
+		return true;
+	}
+
 	function mark(cell, callback) {
 		$(cell).find("div").text(turn);
 		$(cell).addClass(turn);
 		$(cell).find('div').toggle('bounce', { times: 2 }, 600, callback);
 	}
 
-
 	function next_turn() {
-		if (turn === "X") {
-			turn = "O"
-		} else {
-			turn = "X"
-		}
+    // turnary operator
+		turn = (turn === "X") ? "O" : "X"
 	}
 
 	$("td").html("<div></div>")
 	$("td div").hide()
+
+	var turn = "X"
 
 	$('td').click(function(){
 	
@@ -57,22 +52,13 @@ $(document).ready(function(){
 
 		mark(this, function(){
 			if(winner = checkWin()) {
-				gameOver(winner);
+				victoryDance(winner);
 			} else if (draw()) {
-				// alert("DRAW");
 				$('div').effect('bounce', { times: 3}, 2000);
 			}	
 		});
 
 		next_turn();
-
-		// if ( turn % 2 === 1) {
-		// 	bounce_in(this)
-		// } else {
-		// 	bounce_in(this)
-		// }
-
-		// $("td").not(".X, .O")
 
 	});
 
